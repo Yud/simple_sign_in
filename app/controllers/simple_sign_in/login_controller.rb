@@ -3,6 +3,7 @@ require_dependency "simple_sign_in/application_controller"
 module SimpleSignIn
   class LoginController < ApplicationController
     skip_before_filter :redirect_unless_logged_in
+
     def new
     end
 
