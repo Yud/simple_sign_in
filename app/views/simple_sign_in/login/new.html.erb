@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="row-fluid login">
+    <div class="span-12">
+
+      <%= form_tag login_path, method: :post do %>
+
+        <% if flash[:notice] %>
+          <div class="alert alert-error">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+
+        <fieldset>
+          <div class="control-group">
+            <%= label_tag :login %>
+            <%= text_field_tag :login %>
+          </div>
+          <div class="control-group">
+            <%= label_tag :password %>
+            <%= password_field_tag :password %>
+           </div>
+          <%= submit_tag "Submit", class: 'btn btn-success' %>
+        </fieldset>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
