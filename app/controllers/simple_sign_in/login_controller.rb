@@ -13,12 +13,14 @@ module SimpleSignIn
         redirect_to "/"
       else
         flash[:notice] = 'Incorrect login or password'
-        redirect_to action: :new
+        redirect_to :root
       end
     end
 
     def destroy
       session[:simple_sign_in_admin] = nil
+      flash[:notice] = 'You have been signed out'
+      redirect_to :root
     end
   end
 end
