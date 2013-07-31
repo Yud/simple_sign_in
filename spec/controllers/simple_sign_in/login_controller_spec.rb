@@ -3,8 +3,8 @@ require 'spec_helper'
 module SimpleSignIn
   describe SimpleSignIn::LoginController do
     before do
-      @login = ENV['SIMPLE_SIGN_IN_LOGIN'] = 'admin'
-      @pass = ENV['SIMPLE_SIGN_IN_PASSWORD'] = 'admin123'
+      @login = ENV['SIMPLE_SIGN_IN_LOGIN']
+      @pass = ENV['SIMPLE_SIGN_IN_PASSWORD']
     end
 
     describe "GET 'new'" do
