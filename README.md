@@ -2,13 +2,12 @@
 
 ## Introduction
 
-simple_sign_in adds super simple authentication to your Ruby on Raisl app. I've created
-it after I found myself recreating basic authentication from scratch 
-whenever I needed to show an early stage project to someone or during staging environment setup.
-Since I didn't find anything that suited my needs, I've created my own gem.
+simple_sign_in adds [super simple authentication](http://railscasts.com/episodes/21-super-simple-authentication) to your Ruby on Rails app.
 
-TL;DR This gem is not meant to be used in production. Use it during
-early stages of development or in staging env.
+I've created it after I found myself rewriting basic authentication from scratch whenever I needed to show an early stage project to someone or during staging environment setup.
+
+**TL;DR This gem is not meant to be used in production. Use it during
+early stages of development or in staging env.**
 
 ## Installation
 
@@ -20,43 +19,42 @@ And then execute:
 
     $ bundle
 
-## Usage
-
-### Defining Login & Password
-
-simple_sign_in uses two [config vars](https://devcenter.heroku.com/articles/config-vars): ENV['SIMPLE_SIGN_IN_LOGIN'] and ENV['SIMPLE_SIGN_IN_PASSWORD'].
+Next we'll need to define the login & password that will be used by simple_sign_in. This can be accomplished by setting two [config vars](https://devcenter.heroku.com/articles/config-vars): ENV['SIMPLE_SIGN_IN_LOGIN'] and ENV['SIMPLE_SIGN_IN_PASSWORD'].
 
 If you're using os x you can add the following to ~/.profile file:
 
     export SIMPLE_SIGN_IN_LOGIN=admin
     export SIMPLE_SIGN_IN_LOGIN=password
+    
+Then start your server and log into the app using 'admin' and 'password'.
 
-Now you can login using the login to your app using the login 'admin'
-and the password 'password'.
+**Note that simple_sign_in will raise an error if these two variables have not been defined.**
+
+## Usage
+
+### Sign Out Link
+
+If you need to add a sign out link, you can use the following:
+
+    <%= link_to "Sign Out", 'simple_sign_in/signout', method: 'delete' if simple_sign_in_user_logged_in? %>
 
 ### Skipping Authentication
 
-If you want skip authentcation in a specific controller, use the
-skip_before_action:
+If you want skip authentcation in a specific controller, just skip the simple_sign_in_authentication action:
 
     class PublicController < ApplicationController
        skip_before_action :simple_sign_in_authentication
 
        def index
-
        end
     end
 
 ### Defining Environments
 
-By default, simple_sign_in will is turned on automaticlly in all the
-three major environments (test, development and production). You can
-override these deaults by adding the following line to your Application
-controller:
+By default simple_sign_in works automaticlly in all three major environments (test, development and production). You can override this behavior by changing the vlaue of @@simple_sign_in_envs, which aacepts an array containing the names of the environments where simple_sign_in should be enabled.
+
+For example, if you want simple_sign_in to work only in test and production, add the following line to application controller:
 
     @@simple_sign_in_envs ||= [:test, :production]
 
-The @@simple_sign_in_envs variable excepts an array containing the names
-of the environments where it simple_sign_in should be enabled.
-
-**You may need to restart your app for the new changes to take effect.**
+**You may need to restart your app for the new settings to take effect.**
