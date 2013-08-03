@@ -35,6 +35,7 @@ describe "LoginFlow" do
       ApplicationController.class_eval("@@simple_sign_in_envs ||= [:development]")
       visit "/"
       page.should have_content("Top Secret")
+      ApplicationController.class_eval("@@simple_sign_in_envs = nil")
     end
 
   end

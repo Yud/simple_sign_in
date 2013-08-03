@@ -1,4 +1,4 @@
-# SimpleSignIn
+# Simple Sign In
 
 ## Introduction
 
@@ -19,9 +19,13 @@ And then execute:
 
     $ bundle
 
-Next we'll need to define the login & password that will be used by simple_sign_in. This can be accomplished by setting two [config vars](https://devcenter.heroku.com/articles/config-vars): ENV['SIMPLE_SIGN_IN_LOGIN'] and ENV['SIMPLE_SIGN_IN_PASSWORD'].
+Add the following line to config/routes.rb:
 
-If you're using os x you can add the following to ~/.profile file:
+    mount SimpleSignIn::Engine => "/simple_sign_in"
+
+Next you'll need to define your login & password. This can be done by setting two [environment variables](http://en.wikipedia.org/wiki/Environment_variable): SIMPLE_SIGN_IN_LOGIN and SIMPLE_SIGN_IN_PASSWORD.
+
+If you're using os x add the following to ~/.profile or ~/.bashrc file:
 
     export SIMPLE_SIGN_IN_LOGIN=admin
     export SIMPLE_SIGN_IN_LOGIN=password
