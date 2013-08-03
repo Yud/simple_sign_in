@@ -4,9 +4,9 @@
 
 simple_sign_in adds [super simple authentication](http://railscasts.com/episodes/21-super-simple-authentication) to your Ruby on Rails app.
 
-I've created it after I found myself rewriting basic authentication from scratch whenever I needed to show an early stage project to someone or during staging environment setup.
+I've created it after I found myself rewriting basic authentication from scratch whenever I needed to show an early stage project to someone or during staging environment setup. It is meant to be used as a temporary quick fix, which can be applied easily and removed later.
 
-**TL;DR This gem is not meant to be used in production. Use it during
+**TL;DR: This gem is not meant to be used in production. Use it during
 early stages of development or in staging env.**
 
 ## Installation
@@ -62,3 +62,4 @@ For example, if you want simple_sign_in to work only in test and production, add
     @@simple_sign_in_envs ||= [:test, :production]
 
 **You may need to restart your app for the new settings to take effect.**
+
