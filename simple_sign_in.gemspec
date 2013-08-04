@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = SimpleSignIn::VERSION
   s.authors     = ["Izhar Gavish"]
   s.email       = ["izharg@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "Super simple login page"
-  s.description = "Hides your app behind a simple login page. Intended to be used in staging or beta"
+  s.homepage    = "https://github.com/Yud/simple_sign_in"
+  s.summary     = "super simple authentication"
+  s.description = "Adds a simple login page to your app. Intended to be used in staging or beta"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 

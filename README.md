@@ -25,7 +25,7 @@ Add the following line to config/routes.rb:
 
 Next you'll need to define your login & password. This can be done by setting two [environment variables](http://en.wikipedia.org/wiki/Environment_variable): SIMPLE_SIGN_IN_LOGIN and SIMPLE_SIGN_IN_PASSWORD.
 
-If you're using os x add the following to ~/.profile or ~/.bashrc file:
+If you're using os x or linux add the following to ~/.profile || ~/.bashrc || ~/.bash_profile file:
 
     export SIMPLE_SIGN_IN_LOGIN=admin
     export SIMPLE_SIGN_IN_LOGIN=password
@@ -36,7 +36,7 @@ Then start your server and log into the app using 'admin' and 'password'.
 
 ## Usage
 
-### Sign Out Link
+### Sign Out
 
 If you need to add a sign out link, you can use the following:
 
@@ -62,4 +62,3 @@ For example, if you want simple_sign_in to work only in test and production, add
     @@simple_sign_in_envs ||= [:test, :production]
 
 **You may need to restart your app for the new settings to take effect.**
-
