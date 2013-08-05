@@ -38,5 +38,11 @@ describe "LoginFlow" do
       ApplicationController.class_eval("@@simple_sign_in_envs = nil")
     end
 
+    it "should raise an error if environment variables are missing" do
+       ENV['SIMPLE_SIGN_IN_LOGIN'] = nil
+       expect { visit "/" }.to raise_error
+       ENV['SIMPLE_SIGN_IN_LOGIN'] = @login
+    end
+
   end
 end
