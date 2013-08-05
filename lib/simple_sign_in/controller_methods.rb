@@ -16,7 +16,7 @@ module SimpleSignIn
     end
 
     def simple_sign_in_user_logged_in?
-      session[:simple_sign_in_admin] == ENV['SIMPLE_SIGN_IN_LOGIN']
+      session[:simple_sign_in_admin] == ENV['SIMPLE_SIGN_IN_LOGIN'] if ENV['SIMPLE_SIGN_IN_LOGIN']
     end
 
     private
